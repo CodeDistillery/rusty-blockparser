@@ -112,7 +112,8 @@ impl Worker {
                         .join_msg(&format!("Got invalid magic value for {}: 0x{:x}, expected: 0x{:x}",
                         self.coin_type.name, magic,
                         self.coin_type.magic));
-                    return Err(err);
+                    // return Err(err);
+                    return Ok(Some(()))
                 }
                 let result = try!(self.extract_data());
                 // Send parsed result to main thread
